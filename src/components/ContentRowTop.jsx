@@ -26,12 +26,12 @@ const data = [
 ]
 
 function ContentRowTop() {
-    const {movies} = useContext(InitDataContext);
+    const {products} = useContext(InitDataContext);
     const [lastMovie, setLastMovie] = useState(null);
 
     useEffect(() => {
-        setLastMovie(movies?.data[movies?.data?.length - 1]);
-    }, [movies]);
+        setLastMovie(products?.data[products?.data?.length - 1]);
+    }, [products]);
 
     return (
         <div className="container-fluid">

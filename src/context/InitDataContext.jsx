@@ -6,14 +6,28 @@ const InitDataContext = createContext();
 
 function InitDataProvider({ children }) {
     const [data, setData] = useState({
-        movies: null,
-        genres: null
+        productsCount: null,
+        productsCountByCategory: {},
+        products: []
+    },{
+        productProperty: null,
+        product: [],
+        img: null
     });
 
-    const getMovies = async () => {
+    const getproducts = async () => {
         try {
-            const movies = await axios.get('http://localhost:3001/api/movies');
-            setData((value) => ({ ...value, movies: movies.data }));
+            const products = await axios.get('http://localhost:3001/api/products');
+            setData((value) => ({ ...value, products: products.data }));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const listproducts = async () => {
+        try{
+            const product = await axios.get('http://localhost:3001/api/products/:id');
+            setData((value) => ({ ...value, product: product.data }));
         } catch (error) {
             console.log(error);
         }
@@ -22,17 +36,21 @@ function InitDataProvider({ children }) {
     useEffect(() => {
         (async function () {
             try {
-                const movies = await axios.get('http://localhost:3001/api/movies');
-                const genres = await axios.get('http://localhost:3001/api/genres');
-                setData({ movies: movies.data, genres: genres.data });
+                const products = await axios.get('http://localhost:3001/api/products');
+                const product = await axios.get('http://localhost:3001/api/products/:id');
+                setData({ products: products.data, product: product.data });
             } catch (error) {
                 throw new Error(error);
             }
         })()
     }, []);
 
+    useEffect(() => {
+        Console.log("Se Actualizo el archivo")
+    }, [data]);
+
     return (
-        <InitDataContext.Provider value={{...data, getMovies}}>
+        <InitDataContext.Provider value={{...data, getproducts, listproducts}}>
             {children}
         </InitDataContext.Provider>
     )
