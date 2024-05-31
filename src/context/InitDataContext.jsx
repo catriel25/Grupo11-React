@@ -4,30 +4,37 @@ import PropTypes from 'prop-types';
 
 const InitDataContext = createContext();
 
+axios.interceptors.response.use(
+    response => response,
+    error => {
+        console.log('Error en la respuesta:', error.response ? error.response : error.message);
+        return Promise.reject(error);
+    }
+);
+
 function InitDataProvider({ children }) {
     const [data, setData] = useState({
         productsCount: null,
         productsCountByCategory: {},
-        products: []
-    },{
+        products: [],
         productProperty: null,
-        product: [],
+        product: {},
         img: null
     });
 
     const getproducts = async () => {
         try {
-            const products = await axios.get('http://localhost:3001/api/products');
-            setData((value) => ({ ...value, products: products.data }));
+            const response = await axios.get('http://localhost:3001/api/products');
+            setData((value) => ({ ...value, products: response.data }));
         } catch (error) {
             console.log(error);
         }
     }
 
-    const listproducts = async () => {
-        try{
-            const product = await axios.get('http://localhost:3001/api/products/:id');
-            setData((value) => ({ ...value, product: product.data }));
+    const listproducts = async (id) => {
+        try {
+            const response = await axios.get(`http://localhost:3001/api/products/${id}`);
+            setData((value) => ({ ...value, product: response.data }));
         } catch (error) {
             console.log(error);
         }
@@ -36,28 +43,33 @@ function InitDataProvider({ children }) {
     useEffect(() => {
         (async function () {
             try {
-                const products = await axios.get('http://localhost:3001/api/products');
-                const product = await axios.get('http://localhost:3001/api/products/:id');
-                setData({ products: products.data, product: product.data });
+                const productsresponse = await axios.get('http://localhost:3001/api/products');
+                const productresponse = await axios.get('http://localhost:3001/api/products/1'); // Usa un id real
+
+                setData((value) => ({
+                    ...value,
+                    products: productsresponse.data,
+                    product: productresponse.data
+                }));
             } catch (error) {
-                throw new Error(error);
+                console.log(error);
             }
-        })()
+        })();
     }, []);
 
     useEffect(() => {
-        Console.log("Se Actualizo el archivo")
+        console.log("Se Actualizo el archivo");
     }, [data]);
 
     return (
-        <InitDataContext.Provider value={{...data, getproducts, listproducts}}>
+        <InitDataContext.Provider value={{ ...data, getproducts, listproducts }}>
             {children}
         </InitDataContext.Provider>
-    )
+    );
 }
 
 InitDataProvider.propTypes = {
     children: PropTypes.element
-}
+};
 
-export { InitDataContext, InitDataProvider }
+export { InitDataContext, InitDataProvider };

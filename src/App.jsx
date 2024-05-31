@@ -4,7 +4,7 @@ import SideBar from './components/SideBar';
 
 import './App.css';
 import HomePage from './pages/Home';
-import MoviesPage from './pages/Movies';
+import ProductPage from './pages/ProductPage';
 import Genres from './pages/Genres';
 import NotFound from './pages/NotFound';
 import Products from './components/Products';
@@ -15,7 +15,7 @@ function App() {
       <SideBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/movies" component={MoviesPage} />
+        <Route path="/products" component={ProductPage} />
         <Route path="/genres" component={Genres} />
         <Route path="/products/:id" component={Products}/>
         <Route path="*" component={NotFound} />

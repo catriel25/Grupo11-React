@@ -30,7 +30,9 @@ function ContentRowTop() {
     const [lastMovie, setLastMovie] = useState(null);
 
     useEffect(() => {
-        setLastMovie(products?.data[products?.data?.length - 1]);
+        //setLastMovie(products?.data[products?.data?.length - 1]);
+        if(products && products.length > 0)
+            setLastMovie(products[products.length - 1])
     }, [products]);
 
     return (
