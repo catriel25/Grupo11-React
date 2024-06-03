@@ -14,11 +14,11 @@ axios.interceptors.response.use(
 
 function InitDataProvider({ children }) {
     const [data, setData] = useState({
-        productsCount: null,
-        productsCountByCategory: {},
+        productsCount: [],
+        productsCountByCategory: [],
         products: [],
         productProperty: null,
-        product: {},
+        product: [],
         img: null
     });
 
@@ -31,9 +31,18 @@ function InitDataProvider({ children }) {
         }
     }
 
+    const getCategory = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/api/category');
+            setData((value) => ({ ...value, productsCountByCategory: response.data }));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const listproducts = async (id) => {
         try {
-            const response = await axios.get(`http://localhost:3001/api/products/${id}`);
+            const response = await axios.get(`http://localhost:3001/api/products${id}`);
             setData((value) => ({ ...value, product: response.data }));
         } catch (error) {
             console.log(error);
@@ -44,12 +53,10 @@ function InitDataProvider({ children }) {
         (async function () {
             try {
                 const productsresponse = await axios.get('http://localhost:3001/api/products');
-                const productresponse = await axios.get('http://localhost:3001/api/products/1'); // Usa un id real
 
                 setData((value) => ({
                     ...value,
                     products: productsresponse.data,
-                    product: productresponse.data
                 }));
             } catch (error) {
                 console.log(error);
@@ -62,7 +69,7 @@ function InitDataProvider({ children }) {
     }, [data]);
 
     return (
-        <InitDataContext.Provider value={{ ...data, getproducts, listproducts }}>
+        <InitDataContext.Provider value={{ ...data, getproducts}}>
             {children}
         </InitDataContext.Provider>
     );

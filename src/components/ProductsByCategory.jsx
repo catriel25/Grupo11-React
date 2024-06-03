@@ -1,9 +1,10 @@
-import ProductsList from './ProductsList';
-import { useContext } from 'react';
+import CategoryList from './CategoryList';
+import { useContext, useState, useEffect } from 'react';
 import { InitDataContext } from '../context/InitDataContext';
 
-function Products() {
-    const {products} = useContext(InitDataContext);
+function productsCountByCategory() {
+    const {products, productsCountByCategory} = useContext(InitDataContext);
+    const [setCategories, setLastCategories] = useState(null)
 
     return (
         <>
@@ -17,19 +18,15 @@ function Products() {
                         <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                             <thead>
                                 <tr>
-                                    <th>Imagen</th>
                                     <th>Id</th>
-                                    <th>Titulo</th>
-                                    <th>Descuento</th>
-                                    <th>Oferta</th>
-                                    <th>Precio</th>
-                                    <th>Id de Categoría</th>
+                                    <th>descripcion</th>
+                                    <th>total</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     products?.data?.map((product, index) => {
-                                        return <ProductsList  {...product} key={index} />
+                                        return <CategoryList  {...product} key={index} />
                                     })
                                 }
                             </tbody>
@@ -41,4 +38,4 @@ function Products() {
     );
 }
 
-export default Products;
+export default productsCountByCategory;

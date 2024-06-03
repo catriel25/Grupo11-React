@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import { InitDataContext } from "../context/InitDataContext";
 import SmallCard from './SmallCard';
 
 function ContentRowMovie({ data }) {

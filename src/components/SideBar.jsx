@@ -30,9 +30,9 @@ function SideBar() {
 
             {/* <!-- Nav Item - Pages --> */}
             <li className="nav-item">
-                <Link className="nav-link collapsed" to="/genres">
+                <Link className="nav-link collapsed" to="/products">
                     <i className="fas fa-fw fa-folder"></i>
-                    <span>Genres</span>
+                    <span>products</span>
                 </Link>
             </li>
 

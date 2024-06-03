@@ -4,12 +4,14 @@ import GenresInDb from "./GenresInDb";
 import LastMovieInDb from "./LastMovieInDb";
 import { InitDataContext } from "../context/InitDataContext";
 
+
+
 const data = [
     {
-        title: 'Movies in Data Base',
+        title: 'products in Data Base', // total de productos
         color: 'primary',
         icon: 'fa-film',
-        quantity: 21
+        quantity: null
     },
     {
         title: 'Total awards',
@@ -28,12 +30,28 @@ const data = [
 function ContentRowTop() {
     const {products} = useContext(InitDataContext);
     const [lastMovie, setLastMovie] = useState(null);
+    const [setData, setLastData] = useState(data)
+    const [lastCount, setLastCount] = useState();
+    /*useEffect(() => {
+        //setLastMovie(products?.data[products?.data?.length - 1]);
+        if(products && products.length > 0) {// si hay productos en la base de datos
+            setLastMovie(products[products.length - 1]) // se setea el ultimo producto en la base de datos
+            setLastCount(products.length) // se setea el total de productos en la base de datos
+        }
+    }, [products]);*/
 
     useEffect(() => {
-        //setLastMovie(products?.data[products?.data?.length - 1]);
-        if(products && products.length > 0)
-            setLastMovie(products[products.length - 1])
-    }, [products]);
+        if(data[0].quantity === null) {
+            setLastCount(products.length) // total de productos
+            setLastData(data[0].quantity = lastCount) // total de productos 
+        }
+    }, [])
+
+
+    useEffect(() => {
+        console.log('Products:', products);
+        console.log('Data:', data);
+    }, [products, data]);
 
     return (
         <div className="container-fluid">
