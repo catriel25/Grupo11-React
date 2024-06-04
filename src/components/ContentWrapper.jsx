@@ -2,7 +2,7 @@ import TopBar from "./TopBar";
 import ContentRowTop from './ContentRowTop';
 import Footer from './Footer';
 import Products from "./Products";
-import Totales from "./Totales";
+import Totals from "./Totals";
 import LastProduct from "./LastProduct";
 
 function ContentWrapper() {
@@ -11,10 +11,10 @@ function ContentWrapper() {
             <div id="content">
                 <TopBar />
                 <ContentRowTop />
-                <Totales />
+                <Totals />
                 <Products />
 
-                <LastProduct />
+                
 
                 
                 
