@@ -1,25 +1,26 @@
-import { useContext, useEffect, useState } from 'react';
 import { InitDataContext } from '../context/InitDataContext';
+import { useContext, useEffect, useState } from 'react';
+import styles from './lastProduct.module.css'
 
 export default function LastProduct () {
     const {products} = useContext(InitDataContext);
-    // const [lastProduct, setLastProduct] = useState(null);
+    const [lastProduct, setLastProduct] = useState(null);
     console.log(products)
-    const lastProduct = products?.data[products?.data?.length]
-    console.log(products?.data?.length -1)
-    console.log(lastProduct)
+    useEffect(() => {
+        if (products?.data?.length) {
+            const lastIndex = products.data.length - 1;
+            const last = products.data[lastIndex];
+            setLastProduct(last);
+        }
+    }, [products]);
 
-    // useEffect(() => {
-    //     const last = products?.data?.length -1;
-    //     console.log(last)
-    //     setLastProduct(products?.data[-1])
-        
-
-    // }, [products])
-    // console.log(lastProduct)
+    if (!lastProduct) {
+        return <div>Cargando...</div>;
+    }
 
     return (
-        <div>
+        <div className={styles.container}>
+            <h2>Ultimo producto agregado</h2>
             <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                             <thead>
                                 <tr>
@@ -34,13 +35,13 @@ export default function LastProduct () {
                             </thead>
                             <tbody>
                             <tr>
-                                {/* <td><img width={200} src={`http://localhost:3001/img/${lastProduct.imagen}`} key={lastProduct.id} /></td>
+                                <td><img width={200} src={`http://localhost:3001/img/${lastProduct.imagen}`} key={lastProduct.id} /></td>
                                 <td>{lastProduct.id}</td>
                                 <td>{lastProduct.nombre}</td>
                                 <td>{lastProduct.descuento}</td>
                                 <td>{lastProduct.oferta}</td>
                                 <td>{lastProduct.precio}</td>
-                                <td>{lastProduct.id_categoria}</td> */}
+                                <td>{lastProduct.id_categoria}</td>
                             </tr>
                             </tbody>
                         </table>

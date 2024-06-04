@@ -1,14 +1,15 @@
 import ProductsList from './ProductsList';
 import { useContext } from 'react';
 import { InitDataContext } from '../context/InitDataContext';
+import styles from './products.module.css'
 
 function Products() {
     const {products} = useContext(InitDataContext);
 
     return (
-        <>
+        <div className={styles.container}>
             {/*<!-- MOVIES LIST -->*/}
-            <h1 className="h3 mb-2 text-gray-800 ">All the products in the Database</h1>
+            <h2>Todos los productos de la base de datos</h2>
 
             {/*<!-- DataTales Example -->*/}
             <div className="card shadow mb-4">
@@ -37,7 +38,7 @@ function Products() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
