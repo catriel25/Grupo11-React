@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 function ProductsList(props) {
     return (
         <tr>
-            <td>{props.imagen}</td>
+            <td><img width={200} src={`http://localhost:3001/img/${props.imagen}`} key={props.id} /></td>
             <td>{props.id}</td>
             <td>{props.nombre}</td>
             <td>{props.descuento}</td>

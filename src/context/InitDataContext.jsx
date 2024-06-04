@@ -19,8 +19,18 @@ function InitDataProvider({ children }) {
         products: [],
         productProperty: null,
         product: [],
-        img: null
+        img: null,
+        users: []
     });
+
+    const getUsers = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/api/users');
+            setData((value) => ({ ...value, users: response.data }));
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const getproducts = async () => {
         try {
@@ -53,6 +63,7 @@ function InitDataProvider({ children }) {
         (async function () {
             try {
                 const productsresponse = await axios.get('http://localhost:3001/api/products');
+                
 
                 setData((value) => ({
                     ...value,
@@ -62,6 +73,7 @@ function InitDataProvider({ children }) {
                 console.log(error);
             }
         })();
+        getUsers();
     }, []);
 
     useEffect(() => {
