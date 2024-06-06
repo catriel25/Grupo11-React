@@ -1,0 +1,16 @@
+.container{
+    width: 500px;
+}
+
+.container h2{
+    text-align: center;
+}
+
+.subContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.subContainer h4, h6{
+    text-align: center;
+}

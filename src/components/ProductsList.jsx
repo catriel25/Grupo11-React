@@ -9,7 +9,8 @@ function ProductsList(props) {
             <td>{props.descuento}</td>
             <td>{props.oferta}</td>
             <td>{props.precio}</td>
-            <td>{props.id_categoria}</td>
+            <td>{props.categoria.descripcion}</td>
+            <td>{props.descripcion}</td>
         </tr>
     )
 }
