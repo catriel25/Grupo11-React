@@ -30,7 +30,8 @@ export default function LastProduct () {
                                     <th>Descuento</th>
                                     <th>Oferta</th>
                                     <th>Precio</th>
-                                    <th>Id de Categoría</th>
+                                    <th>Categoría</th>
+                                    <th>Requisitos</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,7 +42,8 @@ export default function LastProduct () {
                                 <td>{lastProduct.descuento}</td>
                                 <td>{lastProduct.oferta}</td>
                                 <td>{lastProduct.precio}</td>
-                                <td>{lastProduct.id_categoria}</td>
+                                <td>{lastProduct.categoria.descripcion}</td>
+                                <td>{lastProduct.requisitos}</td>
                             </tr>
                             </tbody>
                         </table>

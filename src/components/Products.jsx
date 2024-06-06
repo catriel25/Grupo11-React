@@ -24,7 +24,8 @@ function Products() {
                                     <th>Descuento</th>
                                     <th>Oferta</th>
                                     <th>Precio</th>
-                                    <th>Id de Categoría</th>
+                                    <th>Categoría</th>
+                                    <th>Descripcion</th>
                                 </tr>
                             </thead>
                             <tbody>
