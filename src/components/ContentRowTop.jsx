@@ -4,49 +4,26 @@ import GenresInDb from "./GenresInDb";
 import LastMovieInDb from "./LastMovieInDb";
 import { InitDataContext } from "../context/InitDataContext";
 
-
-
-const data = [
-    {
+function ContentRowTop() {
+    const {products} = useContext(InitDataContext);
+    const [lastMovie, setLastMovie] = useState(null);
+    const [data, setData] = useState([{
         title: 'products in Data Base', // total de productos
         color: 'primary',
         icon: 'fa-film',
         quantity: null
-    },
-    {
-        title: 'Total awards',
-        color: 'success',
-        icon: 'fa-award',
-        quantity: 79
-    },
-    {
-        title: 'Actors quantity',
-        color: 'warning',
-        icon: 'fa-user',
-        quantity: 49
-    }
-]
+    }])
 
-function ContentRowTop() {
-    const {products} = useContext(InitDataContext);
-    const [lastMovie, setLastMovie] = useState(null);
-    const [setData, setLastData] = useState(data)
-    const [lastCount, setLastCount] = useState();
-    /*useEffect(() => {
-        //setLastMovie(products?.data[products?.data?.length - 1]);
-        if(products && products.length > 0) {// si hay productos en la base de datos
-            setLastMovie(products[products.length - 1]) // se setea el ultimo producto en la base de datos
-            setLastCount(products.length) // se setea el total de productos en la base de datos
-        }
-    }, [products]);*/
+    /*const updateProductCount = () => {
+        const product = products.data
+        const updatedData = [...data];
+        updatedData[0].quantity = product.length;
+        setData(updatedData);
+    };
 
     useEffect(() => {
-        if(data[0].quantity === null) {
-            setLastCount(products.length) // total de productos
-            setLastData(data[0].quantity = lastCount) // total de productos 
-        }
-    }, [])
-
+        updateProductCount();
+    }, [products]);*/ // Este es el conteo de productos, luego arreglamos el error
 
     useEffect(() => {
         console.log('Products:', products);

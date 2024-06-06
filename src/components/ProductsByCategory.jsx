@@ -3,8 +3,17 @@ import { useContext, useState, useEffect } from 'react';
 import { InitDataContext } from '../context/InitDataContext';
 
 function productsCountByCategory() {
-    const {products, productsCountByCategory} = useContext(InitDataContext);
-    const [setCategories, setLastCategories] = useState(null)
+    const {products, CountByCategory} = useContext(InitDataContext);
+    const [setCategories, setLastCategories] = useState()
+
+    useEffect(()=>{
+        let total
+        if(products.length.id_categoria === CountByCategory.length.id){
+            
+
+            setLastCategories()
+        }
+    },[])
 
     return (
         <>

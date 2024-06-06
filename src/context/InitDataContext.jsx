@@ -14,8 +14,8 @@ axios.interceptors.response.use(
 
 function InitDataProvider({ children }) {
     const [data, setData] = useState({
-        productsCount: [],
-        productsCountByCategory: [],
+        Count: [],
+        CountByCategory: {},
         products: [],
         productProperty: null,
         product: [],
@@ -34,7 +34,7 @@ function InitDataProvider({ children }) {
     const getCategory = async () => {
         try {
             const response = await axios.get('http://localhost:3001/api/category');
-            setData((value) => ({ ...value, productsCountByCategory: response.data }));
+            setData((value) => ({ ...value, CountByCategory: response.data }));
         } catch (error) {
             console.log(error);
         }
