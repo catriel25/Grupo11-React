@@ -28,6 +28,15 @@ function SideBar() {
                 </Link>
             </li>
 
+             {/* <!-- Nav Item - Pages --> */}
+             <li className="nav-item">
+                <Link className="nav-link collapsed" to="/users">
+                    <i className="fas fa-fw fa-folder"></i>
+                    <span>USUARIOS</span>
+                </Link>
+            </li>
+            
+
             {/* <!-- Nav Item - Charts --> */}
             {/* <li className="nav-item">
                 <a className="nav-link" href="/">

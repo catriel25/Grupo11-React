@@ -5,9 +5,11 @@ import SideBar from './components/SideBar';
 import './App.css';
 import HomePage from './pages/Home';
 import ProductPage from './pages/ProductPage';
+import UserPage from './pages/UserPage';
 import Genres from './pages/Genres';
 import NotFound from './pages/NotFound';
 import Products from './components/Products';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/products" component={ProductPage} />
+        <Route path="/users" component={UserPage} />
         <Route path="/genres" component={Genres} />
         <Route path="/products/:id" component={Products}/>
         <Route path="*" component={NotFound} />

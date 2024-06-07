@@ -13,15 +13,15 @@ function ContentWrapper() {
         <div id="content-wrapper" className="d-flex flex-column">
             <div id="content">
                 <TopBar />
-                
-                <LastProduct />
                 <div className={styles.totalsContainer}>
                     <Totals />
                     <Categorias />
-                </div>
-                <Products />
+                    
+                </div >
+                <LastProduct />
                 
-
+                <Products />
+            
 
                 
 
