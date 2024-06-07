@@ -20,7 +20,7 @@ export default function LastProduct () {
 
     return (
         <div className={styles.container}>
-            <h2>Ultimo producto agregado</h2>
+            <h2>ULTIMO PRODUCTO AGREGADO</h2>
             <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                             <thead>
                                 <tr>

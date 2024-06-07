@@ -9,7 +9,7 @@ function Products() {
     return (
         <div className={styles.container}>
             {/*<!-- MOVIES LIST -->*/}
-            <h2>Todos los productos de la base de datos</h2>
+            <h2>TODOS LOS PRODUCTOS DE LA BASE DE DATOS</h2>
 
             {/*<!-- DataTales Example -->*/}
             <div className="card shadow mb-4">
