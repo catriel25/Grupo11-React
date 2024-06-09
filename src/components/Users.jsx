@@ -25,6 +25,7 @@ function Users() {
                                     <th>Apellido</th>
                                     <th>E-mail</th>
                                     <th>Telefono</th>
+                                    <th>Rol</th>
                                 </tr>
                             </thead>
                             <tbody>

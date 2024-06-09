@@ -8,8 +8,9 @@ function ProductsList(props) {
             <td>{props.nombre_usuario}</td>
             <td>{props.persona.nombre}</td>
             <td>{props.persona.apellido}</td>
-            <td>{props.persona.mail}</td>
+            <td>{props.persona.email}</td>
             <td>{props.persona.telefono}</td>
+            <td>{props.rol.descripcion}</td>
         </tr>
     )
 }
