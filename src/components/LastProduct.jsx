@@ -36,7 +36,7 @@ export default function LastProduct () {
                             </thead>
                             <tbody>
                             <tr>
-                                <td><img width={200} src={`http://localhost:3001/img/${lastProduct.imagen}`} key={lastProduct.id} /></td>
+                                <td><img width={200} src={`http://localhost:3001/img/portada/${lastProduct.imagen}`} key={lastProduct.id} /></td>
                                 <td>{lastProduct.id}</td>
                                 <td>{lastProduct.nombre}</td>
                                 <td>{lastProduct.descuento}</td>

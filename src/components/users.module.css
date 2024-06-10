@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    height: 100vh; /* Esto asegura que el contenedor ocupe toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container h2{
+    text-align: center;
+    background: #eb4f4f;
+}
+.card {
+    width: 90%; /* Esto establece un ancho del 90% del contenedor */
+    max-width: 1200px; /* Esto establece un ancho máximo de 1200px */
+}
+
+.table-responsive {
+    overflow-x: auto; /* Esto permite que la tabla sea responsive*/
+}
+
+.table {
+    width: 100%; /* Esto asegura que la tabla ocupe todo el ancho de su contenedor */
+}
+

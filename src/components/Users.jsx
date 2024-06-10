@@ -1,7 +1,7 @@
 import UsersList from './UsersList';
 import { useContext } from 'react';
 import { InitDataContext } from '../context/InitDataContext';
-import styles from './products.module.css'
+import styles from './users.module.css'
 
 function Users() {
     const {users} = useContext(InitDataContext);
@@ -9,7 +9,7 @@ function Users() {
     return (
         <div className={styles.container}>
             {/*<!-- MOVIES LIST -->*/}
-            <h2>TODOS LOS USARIOS DE LA BASE DE DATOS</h2>
+            <h2>TODOS LOS USUARIOS DE LA BASE DE DATOS</h2>
 
             {/*<!-- DataTales Example -->*/}
             <div className="card shadow mb-4">
@@ -20,7 +20,7 @@ function Users() {
                                 <tr>
                                     <th>Imagen</th>
                                     <th>Id</th>
-                                    <th>Avatar</th>
+                                    <th>Usuario</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>E-mail</th>
